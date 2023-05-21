@@ -7,6 +7,10 @@ window.onload = () => {
   const estaEmLoginOuLandingPage =
     tela === "/" || tela === "/login.html" || tela === "";
 
+  if (usuarioLogado && estaEmLoginOuLandingPage) {
+    window.location.pathname = "gestao-administrativa.html";
+    return;
+  }
   if (usuarioLogado || estaEmLoginOuLandingPage) return;
 
   window.location.pathname = "/";
