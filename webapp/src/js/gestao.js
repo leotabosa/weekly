@@ -5,9 +5,7 @@ document.getElementById("botao-sair").addEventListener("click", () => {
   window.location.pathname = "/";
 });
 
-window.onload = () => {
-  carregarUsuarios();
-};
+carregarUsuarios();
 
 async function removerUsuario(id) {
   try {

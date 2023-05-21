@@ -47,6 +47,23 @@ router.get("/usuario/:id?", async function (req, res, next) {
   }
 });
 
+router.post("/usuario", async function (req, res, next) {
+  try {
+    const usuario = req.body;
+    const db = await connect();
+    res.json(await db.collection("usuario").insertOne(usuario));
+  } catch (err) {
+    console.log(err);
+    if (err.message.includes("duplicate key")) {
+      res.status(422).json({
+        erro: "Já existe um usuário cadastrado com o email informado.",
+      });
+      return;
+    }
+    res.status(400).json({ erro: `${err}` });
+  }
+});
+
 router.delete("/usuario/:id", async function (req, res, next) {
   try {
     const db = await connect();

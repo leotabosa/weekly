@@ -17,7 +17,7 @@
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
               <li class="nav-item">
                 <a
-                  class="nav-link active"
+                  class="nav-link"
                   aria-current="page"
                   href="gestao-administrativa.html"
                 >
@@ -25,7 +25,7 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="cadastro-usuario.html">
+                <a class="nav-link active" href="cadastro-usuario.html">
                   Cadastro de usuário
                 </a>
               </li>
@@ -49,6 +49,58 @@
           </div>
         </div>
       </nav>
+
+      <div
+        class="container py-4 px-3 mx-auto my-auto d-flex justify-content-center"
+      >
+        <div class="row d-flex flex-column justify-content-center">
+          <div>
+            <h2 class="mb-4">Criação de usuário</h2>
+            <form id="form-criar-usuario">
+              <div class="mb-3">
+                <label for="input-nome" class="form-label">Nome</label>
+                <input
+                  id="input-nome"
+                  type="text"
+                  class="form-control"
+                  required
+                />
+              </div>
+              <div class="mb-3">
+                <label for="input-email" class="form-label">Email</label>
+                <input
+                  id="input-email"
+                  type="email"
+                  class="form-control"
+                  required
+                />
+              </div>
+              <div class="mb-3">
+                <label for="input-senha" class="form-label"> Senha </label>
+                <input
+                  type="password"
+                  class="form-control"
+                  id="input-senha"
+                  required
+                />
+              </div>
+              <div
+                id="erro-criar-usuario"
+                class="alert alert-danger d-none"
+                role="alert"
+              ></div>
+              <button
+                id="botao-criar-usuario"
+                type="submit"
+                class="btn btn-primary mt-3"
+                style="width: 100%"
+              >
+                Criar usuário
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
     </div>
   </body>
 </html>
