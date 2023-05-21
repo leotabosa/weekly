@@ -7,7 +7,7 @@ const urlParams = new URLSearchParams(query);
 modoEdicao = urlParams.has("id");
 
 if (modoEdicao) {
-  carregarUsuarioParaEdicao();
+  prepararTelaParaEdicao();
 }
 
 document.getElementById("botao-sair").addEventListener("click", () => {
@@ -39,7 +39,8 @@ async function editarUsuario() {
       email,
       senha,
     });
-    window.location.pathname = "/gestao-administrativa.html";
+
+    window.location = "/gestao-administrativa.html";
   } catch (error) {
     document.getElementById("erro-criar-usuario").classList.remove("d-none");
     document.getElementById("erro-criar-usuario").innerText =
@@ -85,4 +86,10 @@ async function carregarUsuarioParaEdicao() {
     document.getElementById("input-email").value = usuario.data.email;
     document.getElementById("input-senha").value = usuario.data.senha;
   } catch (error) {}
+}
+
+function prepararTelaParaEdicao() {
+  document.getElementById("titulo-pagina").innerText = "Edição de usuário";
+  document.getElementById("botao-criar-usuario").innerText = "Editar usuário";
+  carregarUsuarioParaEdicao();
 }
