@@ -14,13 +14,9 @@ async function removerUsuario(id) {
   } catch (error) {}
 }
 
-async function carregarUsuarios(parametroBusca = null) {
+async function carregarUsuarios() {
   try {
-    const usuarios = await api.get("/usuario", {
-      params: {
-        nome: parametroBusca,
-      },
-    });
+    const usuarios = await api.get("/usuario");
 
     const tabelaUsuarios = document.getElementById("tabela-usuarios");
     tabelaUsuarios.innerHTML = "";
