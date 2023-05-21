@@ -35,6 +35,32 @@ router.post("/auth", async function (req, res, next) {
   }
 });
 
+router.get("/usuario/:id?", async function (req, res, next) {
+  try {
+    const db = await connect();
+    if (req.params.id)
+      res.json(await db.collection("usuario").findOne({ id: req.params.id }));
+    else res.json(await db.collection("usuario").find().toArray());
+  } catch (err) {
+    console.log(err);
+    res.status(400).json({ erro: `${err}` });
+  }
+});
+
+router.delete("/usuario/:id", async function (req, res, next) {
+  try {
+    const db = await connect();
+    res.json(
+      await db
+        .collection("usuario")
+        .deleteOne({ _id: new ObjectId(req.params.id) })
+    );
+  } catch (err) {
+    console.log(err);
+    res.status(400).json({ erro: `${err}` });
+  }
+});
+
 app.use("/", router);
 
 app.listen(port);
