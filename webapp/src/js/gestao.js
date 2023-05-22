@@ -1,4 +1,5 @@
 import api from "./clientApi.js";
+import { Toast } from "bootstrap";
 
 document.getElementById("botao-sair").addEventListener("click", () => {
   window.localStorage.removeItem("_wk.usuario");
@@ -11,7 +12,16 @@ async function removerUsuario(id) {
   try {
     await api.delete(`/usuario/${id}`);
     await carregarUsuarios();
-  } catch (error) {}
+    const toastErro = document.getElementById("toast-sucesso-usuario-gestao");
+
+    Toast.getOrCreateInstance(toastErro).show();
+  } catch (error) {
+    const toastErro = document.getElementById("toast-erro-usuario-gestao");
+    const texto = document.getElementById("texto-toast-erro-usuario-gestao");
+
+    texto.innerText = "Não foi possível remover o usuário.";
+    Toast.getOrCreateInstance(toastErro).show();
+  }
 }
 
 async function carregarUsuarios() {
@@ -53,7 +63,8 @@ async function carregarUsuarios() {
       el.addEventListener("click", async (event) => {
         event.currentTarget.style = "pointer-events: none;";
         await removerUsuario(event.currentTarget.getAttribute("data-id"));
-        event.currentTarget.style = "pointer-events: unset;";
+        if (event.currentTarget)
+          event.currentTarget.style = "pointer-events: unset;";
       });
     });
 
@@ -65,5 +76,11 @@ async function carregarUsuarios() {
         )}`;
       });
     });
-  } catch (error) {}
+  } catch (error) {
+    const toastErro = document.getElementById("toast-erro-usuario-gestao");
+    const texto = document.getElementById("texto-toast-erro-usuario-gestao");
+
+    texto.innerText = "Não foi possível carregar os usuários.";
+    Toast.getOrCreateInstance(toastErro).show();
+  }
 }

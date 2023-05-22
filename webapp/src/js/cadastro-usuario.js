@@ -1,4 +1,5 @@
 import api from "./clientApi.js";
+import { Toast } from "bootstrap";
 
 let modoEdicao = false;
 
@@ -85,7 +86,10 @@ async function carregarUsuarioParaEdicao() {
     document.getElementById("input-nome").value = usuario.data.nome;
     document.getElementById("input-email").value = usuario.data.email;
     document.getElementById("input-senha").value = usuario.data.senha;
-  } catch (error) {}
+  } catch (error) {
+    const toastErro = document.getElementById("toast-erro-usuario");
+    Toast.getOrCreateInstance(toastErro).show();
+  }
 }
 
 function prepararTelaParaEdicao() {
