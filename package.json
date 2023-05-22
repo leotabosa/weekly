@@ -1,0 +1,10 @@
+{
+  "scripts": {
+    "start-webapp": "cd webapp && yarn start",
+    "start-api": "cd api && node app.js",
+    "start": "concurrently \"yarn start-webapp\" \"yarn start-api\""
+  },
+  "devDependencies": {
+    "concurrently": "^8.0.1"
+  }
+}
