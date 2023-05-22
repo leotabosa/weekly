@@ -29,3 +29,12 @@ Esse comando irá rodar tanto o front-end quanto API da aplicação.
    ```shell
    cd webapp && yarn start
    ```
+
+## Primeiro acesso
+
+Temos um usuário padrão para o primeiro acesso:
+
+```
+Email: teste@teste.com
+Senha: enviada no comentário da atividade
+```
