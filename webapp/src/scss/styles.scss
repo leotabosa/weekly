@@ -14,3 +14,9 @@
     transition: background-color 0.2s ease;
   }
 }
+
+.toast-absolute {
+  position: absolute;
+  right: 0;
+  z-index: 9000;
+}
