@@ -1,6 +1,9 @@
 const { MongoClient, ObjectId } = require("mongodb");
 require("dotenv").config();
 
+// Utiliza arquivo .env para definir uma senha a ser
+// usada na conexão com o banco. Veja o README.md do projeto
+// para mais instruções.
 async function connect() {
   if (global.db) return global.db;
   const conn = await MongoClient.connect(
