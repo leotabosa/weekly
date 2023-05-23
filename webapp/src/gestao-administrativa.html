@@ -83,22 +83,8 @@
         <div class="container-fluid">
           <a class="navbar-brand" href="gestao-administrativa.html">Weekly</a>
 
-          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <div class="navbar-collapse">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-              <li class="nav-item">
-                <a
-                  class="nav-link active"
-                  aria-current="page"
-                  href="gestao-administrativa.html"
-                >
-                  Gestão administrativa
-                </a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="cadastro-usuario.html">
-                  Cadastro de usuário
-                </a>
-              </li>
               <li class="nav-item dropdown">
                 <a
                   class="nav-link dropdown-toggle"
@@ -107,9 +93,23 @@
                   data-bs-toggle="dropdown"
                   aria-expanded="false"
                 >
-                  Menu do usuário
+                  Menu
                 </a>
                 <ul class="dropdown-menu">
+                  <li>
+                    <a
+                      class="dropdown-item active"
+                      aria-current="page"
+                      href="gestao-administrativa.html"
+                    >
+                      Gestão administrativa
+                    </a>
+                  </li>
+                  <li>
+                    <a class="dropdown-item" href="cadastro-usuario.html">
+                      Cadastro de usuário
+                    </a>
+                  </li>
                   <li>
                     <a id="botao-sair" class="dropdown-item" href="">Sair</a>
                   </li>
@@ -124,7 +124,7 @@
           <tr>
             <th scope="col">Nome</th>
             <th scope="col">Email</th>
-            <th scope="col" style="width: 150px">Ações</th>
+            <th scope="col" style="max-width: 150px">Ações</th>
           </tr>
         </thead>
         <tbody id="tabela-usuarios"></tbody>

@@ -43,6 +43,7 @@ async function carregarUsuarios() {
       elemento.insertAdjacentElement("beforeend", nome);
 
       const email = document.createElement("td");
+      email.style.wordBreak = "break-all";
       email.innerText = usuario.email;
       elemento.insertAdjacentElement("beforeend", email);
 
